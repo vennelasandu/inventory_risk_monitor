@@ -16,6 +16,10 @@ The ranking compares a product’s quantity with its threshold:
 - Medium risk: quantity equals the threshold.
 - Low risk: quantity is above the threshold.
 
+# Project files are
+-Algorithm
+-README.md
+-inventory_risk_monitor.py
 # Technologies used 
 Python
 

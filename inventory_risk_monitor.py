@@ -27,28 +27,49 @@ while True:
     option=input("Enter your option:")
     #---show all products in store---
     if option=="1":
-        print("All products in store")
-        print("\nId  \tName \tQty  \tThreshold  \tStatus")
+        if len(products) == 0:
+            print("No products in the inventory.")
+        else:
+            print("\nAll products in store")
+        print("ID \tName \tQty \tThreshold \tStatus")
+        print("-" * 50)
         for pid in products:
             if products[pid]["qty"]<=products[pid]["threshold"]:
                 status="Low stock please reorder"
             else:
                 status="Stock is enough"
             print(pid," ",products[pid]["name"]," ",products[pid]["qty"]," ",products[pid]["threshold"]," ",status)
+    
+    
     #---Add new product in store---
+    
     elif option=="2":
-        pid=input("Enter product id:")
-        #uniqueness check for id
-        if pid in products:
-            print("**Product id must be unique,please enter new product id**")
-            break
+        pid=input("Enter product id:").strip()
+        if pid=="":
+            print("**Product id cannot be empty**")
+        elif pid in products:
+            print("**Product id must be unique to add the product,please enter new product id**")
+        else:   
+            name=input("Enter product name:").strip()
+            
+            if name=="":
+                print("**Product name cannot be empty**")
+            
+            else:
+                duplicate_name=False
+
+                for existing_id in products:
+                    if products[existing_id]["name"].lower() == name.lower():
+                        duplicate_name=True
+                        break
+                if duplicate_name:
+                    print("**Product name already exists, please enter a different product name**")
+                    break
+            qty=int(input("Enter product qty:"))
+            threshold=int(input("Enter product threshold:"))
+                    
         
-        name=input("Enter product name:")
-        if name in products:
-            print("**Check Product name again to avoid duplicate product name**")
-            break
-        qty=int(input("Enter product qty:"))
-        threshold=int(input("Enter product threshold:"))
+        
         products[pid]={"name":name,"qty":qty,"threshold":threshold}
 
        
@@ -57,14 +78,15 @@ while True:
 
     #---Update product qty or Restock---
     elif option=="3":
-        pid=input("Enter product id to update:")
-        if pid in products:
-            print("Product found:",products[pid]["name"])
-            qty=int(input("Enter new qty to update:"))
-            products[pid]["qty"]+=qty
-            print("Product qty updated successfully")
-        else:
+        pid=input("Enter product id to restock :")
+        if pid not in products:
             print("**Product not found**")
+            
+        else:
+            print("Product found:",products[pid]["name"])
+            qty=int(input("Enter new qty to restock:"))
+            products[pid]["qty"]+=qty
+            print("Product qty restocked successfully")
 
     #---Sale product---
     elif option=="4":
@@ -83,7 +105,7 @@ while True:
     #---Risk ranking for threshold products---
     elif option == "5":
         print("Risk ranking for threshold products")
-        print("\nId  \tName \tQty  \tThreshold  \tStatus")
+        print("\nId\tName\tQty\tThreshold\trisk_ratio\tStatus")
 
         if len(products)==0:
             print("No products in store")
@@ -99,7 +121,15 @@ while True:
                 status="High risk"
             ranked_products.append((pid, products[pid]["name"], products[pid]["qty"], products[pid]["threshold"], risk_ratio, status))
         ranked_products.sort()
-        print(ranked_products)
+        for item in  ranked_products:
+            print(
+                item[0],"\t",
+                  item[1],"\t",
+                  item[2],"\t",
+                  item[3],"\t",
+                  item[4],"\t",
+                  item[5]
+            )
 
 
     #---Exit---

@@ -1,0 +1,45 @@
+## Algorithm: Inventory Risk Monitor
+
+1. **Start** with a dictionary of products. Each product has an ID, name, quantity, and reorder threshold.
+2. Display the menu:
+   1. Show all products
+   2. Add a product
+   3. Restock a product
+   4. Sell a product
+   5. Rank products by stock risk
+   6. Exit
+3. Ask the user to choose an option.
+4. If the user chooses **Show all products**:
+   - If the inventory is empty, display a message.
+   - Otherwise, display each product and label it low stock if its quantity is less than or equal to its threshold.
+5. If the user chooses **Add a product**:
+   - Ask for a product ID.
+   - Check that the ID is not empty and does not already exist.
+   - Ask for a product name.
+   - Check that the name is not empty or already used.
+   - Ask for the starting quantity and threshold.
+   - Add the product to the dictionary.
+6. If the user chooses **Restock a product**:
+   - Ask for a product ID.
+   - If the ID exists, ask how many units to add and increase its quantity.
+   - Otherwise, display “Product not found.”
+7. If the user chooses **Sell a product**:
+   - Ask for a product ID.
+   - If the ID exists, ask how many units to sell.
+   - If the requested amount exceeds the available quantity, display an insufficient-stock message.
+   - Otherwise, subtract the sold quantity.
+   - If the ID does not exist, display “Product not found.”
+8. If the user chooses **Risk ranking**:
+   - If the inventory is empty, display a message.
+   - For each product, calculate `quantity ÷ threshold`.
+   - Assign a risk level:
+     - Ratio greater than 1: Low risk
+     - Ratio equal to 1: Medium risk
+     - Ratio less than 1: High risk
+   - Add each product’s details, ratio, and risk level to a list.
+   - Sort and display the list.
+9. If the user chooses **Exit**, display an exit message and stop.
+10. If the choice is invalid, display an error message.
+11. Repeat from step 2 until the user exits.
+
+**Note:** In your starting dictionary, `"p12"` appears twice. Python keeps only the second `"p12"` entry (`box`), replacing `"chips"`. Give one of them a different ID if you want both products.

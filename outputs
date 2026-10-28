@@ -1,0 +1,202 @@
+#Run the program "inventory_risk_monitor.py"
+output::
+
+*******Inventory Risk Monitor*******
+1.show all products
+2.Add new product
+3.Update product qty or Restock
+4.Sale product
+5.Risk ranking for threshold products
+6.Exit
+Enter your option:1
+
+All products in store
+ID      Name    Qty     Threshold       Status
+--------------------------------------------------
+p1   Candles   20   10   Stock is enough
+p2   pen   30   20   Stock is enough
+p3   pencils   5   10   Low stock please reorder
+p4   notebook   20   50   Low stock please reorder
+p5   bag   15   10   Stock is enough
+p6   papers   20   10   Stock is enough
+p7   toys   25   8   Stock is enough
+p8   cards   10   10   Low stock please reorder
+p9   chocolate   50   30   Stock is enough
+p10   pouch   18   20   Low stock please reorder
+p11   Candies   5   1   Stock is enough
+p12   box   2   5   Low stock please reorder
+p13   watches   2   8   Low stock please reorder
+p14   bottles   8   15   Low stock please reorder
+
+*******Inventory Risk Monitor*******
+1.show all products
+2.Add new product
+3.Update product qty or Restock
+4.Sale product
+5.Risk ranking for threshold products
+6.Exit
+Enter your option:2
+Enter product id:p15
+Enter product name:mobiles
+Enter product qty:15
+Enter product threshold:10
+Product added successfully
+
+*******Inventory Risk Monitor*******
+1.show all products
+2.Add new product
+3.Update product qty or Restock
+4.Sale product
+5.Risk ranking for threshold products
+6.Exit
+Enter your option:1
+
+All products in store
+ID      Name    Qty     Threshold       Status
+--------------------------------------------------
+p1   Candles   20   10   Stock is enough
+p2   pen   30   20   Stock is enough
+p3   pencils   5   10   Low stock please reorder
+p4   notebook   20   50   Low stock please reorder
+p5   bag   15   10   Stock is enough
+p6   papers   20   10   Stock is enough
+p7   toys   25   8   Stock is enough
+p8   cards   10   10   Low stock please reorder
+p9   chocolate   50   30   Stock is enough
+p10   pouch   18   20   Low stock please reorder
+p11   Candies   5   1   Stock is enough
+p12   box   2   5   Low stock please reorder
+p13   watches   2   8   Low stock please reorder
+p14   bottles   8   15   Low stock please reorder
+p15   mobiles   15   10   Stock is enough
+
+*******Inventory Risk Monitor*******
+1.show all products
+2.Add new product
+3.Update product qty or Restock
+4.Sale product
+5.Risk ranking for threshold products
+6.Exit
+Enter your option:2
+Enter product id:p4
+**Product id must be unique to add the product,please enter new product id**
+Product added successfully
+
+*******Inventory Risk Monitor*******
+1.show all products
+2.Add new product
+3.Update product qty or Restock
+4.Sale product
+5.Risk ranking for threshold products
+6.Exit
+Enter your option:3
+Enter product id to restock :p15
+Product found: mobiles
+Enter new qty to restock:5
+Product qty restocked successfully
+
+*******Inventory Risk Monitor*******
+1.show all products
+2.Add new product
+3.Update product qty or Restock
+4.Sale product
+5.Risk ranking for threshold products
+6.Exit
+Enter your option:1
+
+All products in store
+ID      Name    Qty     Threshold       Status
+--------------------------------------------------
+p1   Candles   20   10   Stock is enough
+p2   pen   30   20   Stock is enough
+p3   pencils   5   10   Low stock please reorder
+p4   mobiles   15   10   Stock is enough
+p5   bag   15   10   Stock is enough
+p6   papers   20   10   Stock is enough
+p7   toys   25   8   Stock is enough
+p8   cards   10   10   Low stock please reorder
+p9   chocolate   50   30   Stock is enough
+p10   pouch   18   20   Low stock please reorder
+p11   Candies   5   1   Stock is enough
+p12   box   2   5   Low stock please reorder
+p13   watches   2   8   Low stock please reorder
+p14   bottles   8   15   Low stock please reorder
+p15   mobiles   20   10   Stock is enough
+
+*******Inventory Risk Monitor*******
+1.show all products
+2.Add new product
+3.Update product qty or Restock
+4.Sale product
+5.Risk ranking for threshold products
+6.Exit
+Enter your option:4
+Enter product id to sale:p9
+Product found: chocolate
+Enter qty to sale:40
+Product sold successfully
+
+*******Inventory Risk Monitor*******
+1.show all products
+2.Add new product
+3.Update product qty or Restock
+4.Sale product
+5.Risk ranking for threshold products
+6.Exit
+Enter your option:1
+
+All products in store
+ID      Name    Qty     Threshold       Status
+--------------------------------------------------
+p1   Candles   20   10   Stock is enough
+p2   pen   30   20   Stock is enough
+p3   pencils   5   10   Low stock please reorder
+p4   mobiles   15   10   Stock is enough
+p5   bag   15   10   Stock is enough
+p6   papers   20   10   Stock is enough
+p7   toys   25   8   Stock is enough
+p8   cards   10   10   Low stock please reorder
+p9   chocolate   10   30   Low stock please reorder
+p10   pouch   18   20   Low stock please reorder
+p11   Candies   5   1   Stock is enough
+p12   box   2   5   Low stock please reorder
+p13   watches   2   8   Low stock please reorder
+p14   bottles   8   15   Low stock please reorder
+p15   mobiles   20   10   Stock is enough
+
+*******Inventory Risk Monitor*******
+1.show all products
+2.Add new product
+3.Update product qty or Restock
+4.Sale product
+5.Risk ranking for threshold products
+6.Exit
+Enter your option:5
+Risk ranking for threshold products
+
+Id      Name    Qty     Threshold       risk_ratio      Status
+p1       Candles         20      10      2.0     Low risk
+p10      pouch   18      20      0.9     High risk
+p11      Candies         5       1       5.0     Low risk
+p12      box     2       5       0.4     High risk
+p13      watches         2       8       0.25    High risk
+p14      bottles         8       15      0.53    High risk
+p15      mobiles         20      10      2.0     Low risk
+p2       pen     30      20      1.5     Low risk
+p3       pencils         5       10      0.5     High risk
+p4       mobiles         15      10      1.5     Low risk
+p5       bag     15      10      1.5     Low risk
+p6       papers          20      10      2.0     Low risk
+p7       toys    25      8       3.12    Low risk
+p8       cards   10      10      1.0     Medium risk
+p9       chocolate       10      30      0.33    High risk
+
+*******Inventory Risk Monitor*******
+1.show all products
+2.Add new product
+3.Update product qty or Restock
+4.Sale product
+5.Risk ranking for threshold products
+6.Exit
+Enter your option:6
+Exiting Inventory Risk Monitor
